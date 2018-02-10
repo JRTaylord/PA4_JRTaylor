@@ -2,6 +2,4 @@
 // Created by student on 2/10/18.
 //
 
-int main(){
-    return 0;
-}
+#include "event.h"
