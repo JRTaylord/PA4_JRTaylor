@@ -9,6 +9,13 @@
 class event {
     public:
         int time;
+        bool compare(event other){
+            if (other.time<this->time){
+                return true;
+            } else{
+                return false;
+            }
+        }
 };
 
 

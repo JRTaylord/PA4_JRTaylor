@@ -8,8 +8,9 @@
 #ifndef PA4_JRTAYLOR_EVENTQUEUE_H
 #define PA4_JRTAYLOR_EVENTQUEUE_H
 
+using namespace std;
 
-class eventQueue {
+class eventQueue: public priority_queue {
 
 };
 
