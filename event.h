@@ -7,7 +7,8 @@
 
 
 class event {
-
+    public:
+        int time;
 };
 
 
