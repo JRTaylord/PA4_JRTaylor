@@ -63,13 +63,32 @@ void eventQueue::insert_position(int pos, event value) {
 }
 
 void eventQueue::delete_first() {
-    
+    node *temp;
+    temp=head;
+    head=head->next;
+    delete temp;
 }
 
 void eventQueue::delete_last() {
-
+    node *cur=new node;
+    node *prev=new node;
+    cur=head;
+    while(cur->next!=NULL){
+        prev=cur;
+        cur=cur->next;
+    }
+    tail=prev;
+    prev->next=NULL;
+    delete cur;
 }
 
 void eventQueue::delete_position(int pos) {
-
+    node *cur=new node;
+    node *prev=new node;
+    cur=head;
+    for (int i = 1; i < pos; ++i) {
+        prev=cur;
+        cur=cur->next;
+    }
+    prev->next=cur->next;
 }
