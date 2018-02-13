@@ -24,7 +24,7 @@ void eventQueue::display(){
     temp=new node;
     temp=head;
     while(temp!=NULL){
-        cout<<temp->data<<"\t";
+        cout << temp->data.time << "\t";
         temp=temp->next;
     }
 }
@@ -43,4 +43,33 @@ void eventQueue::insert_end(event value) {
     temp->data=value;
     temp->next=NULL;
     tail=temp;
+}
+
+void eventQueue::insert_position(int pos, event value) {
+    node *pre;
+    node *cur;
+    node *temp;
+    pre=new node;
+    cur=new node;
+    temp=new node;
+    cur=head;
+    for (int i = 1; i < pos; ++i) {
+        pre=cur;
+        cur=cur->next;
+    }
+    temp->data=value;
+    pre->next=temp;
+    temp->next=cur;
+}
+
+void eventQueue::delete_first() {
+    
+}
+
+void eventQueue::delete_last() {
+
+}
+
+void eventQueue::delete_position(int pos) {
+
 }
