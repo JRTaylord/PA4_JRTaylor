@@ -23,7 +23,7 @@ class eventQueue {
         node *head, *tail;
     public:
         eventQueue();
-        void createNode();
+        void createNode(event e);
         void display();
         void insert_start(event value);
         void insert_end(event value);
