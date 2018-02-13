@@ -14,8 +14,8 @@ void eventQueue::createNode(event e){
         tail=temp;
         temp=NULL;
     } else {
-        tail->next=temp;
-        tail=temp;
+        tail->next = temp;
+        tail = temp;
     }
 }
 
