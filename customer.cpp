@@ -8,7 +8,7 @@
 #include <cstdio>
 #include <iostream>
 
-#include "Customer.h"
+#include "customer.h"
 
 
 Customer::Customer(float simulationTime){
