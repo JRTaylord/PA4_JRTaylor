@@ -10,6 +10,7 @@
 
 #include <cstdio>
 #include <cstdlib>
+#include "event.h"
 
 class Teller {
 public:

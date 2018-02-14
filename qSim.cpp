@@ -44,6 +44,15 @@ int main(int argc, char *argv[]){
             break;
     }
 
+    //*************************************************************************
+    // Start of single line
+
+    eventQueue *singleLineEQ = new eventQueue();
+
+    Customer** allCustomers = new Event[customers];
+    Teller** allTellers = new Event[tellers];
+
+
 
 
     return 0;

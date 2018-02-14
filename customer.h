@@ -10,8 +10,9 @@
 
 #include <cstdio>
 #include <cstdlib>
+#include "event.h"
 
-class Customer {
+class Customer: public Event {
 public:
 	float getArrTime();
 	float getProTime();
