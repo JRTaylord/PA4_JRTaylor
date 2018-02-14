@@ -13,16 +13,12 @@
 
 class Teller {
 public:
-	float getArrTime();
-	float getProTime();
-
+	ffloat idel; // idel time
 
 	Teller(); // default constructor
 	~Teller(); // destructor
 private:
 
 };
-
-
 
 #endif /* TELLER_H_ */
