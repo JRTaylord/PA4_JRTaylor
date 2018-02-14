@@ -12,24 +12,22 @@
 #include <cstdlib>
 #include "event.h"
 
-class Customer: public Event {
+class Customer: public event {
 public:
 	float getArrTime();
 	float getProTime();
-
+	float arrTime; // time of arrival
+	float proTime; // time of being processed
 
 	Customer(float simulationTime);
-	Customer(){; // default constructor
+	Customer() {
+		; // default constructor
 		arrTime = -1;
 		proTime = -1;
 	}
 	~Customer(); // destructor
 private:
-	float arrTime; // time of arrival
-	float proTime; // time of being processed
 
 };
-
-
 
 #endif /* CUSTOMER_H_ */

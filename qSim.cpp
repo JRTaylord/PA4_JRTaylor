@@ -5,6 +5,9 @@
 #include <cstdlib>
 #include <queue>
 #include "event.h"
+#include "eventQueue.h"
+#include "teller.h"
+#include "customer.h"
 
 using namespace std;
 
@@ -47,10 +50,10 @@ int main(int argc, char *argv[]){
     //*************************************************************************
     // Start of single line
 
-    eventQueue *singleLineEQ = new eventQueue();
-
-    Customer** allCustomers = new Event[customers];
-    Teller** allTellers = new Event[tellers];
+//    eventQueue *singleLineEQ = new eventQueue();
+//
+//    Customer* allCustomers = new Customer();
+//    Teller* allTellers = new Teller();
 
 
 

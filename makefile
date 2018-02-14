@@ -17,7 +17,7 @@ eventQueue.o: eventQueue.cpp eventQueue.h
 	g++ $(CFLAGS) -c eventQueue.cpp
 
 customer.o: customer.cpp customer.h
-	g++ $(CFLAGS) -c customer.c
+	g++ $(CFLAGS) -c customer.cpp
 
 teller.o: teller.cpp teller.h
 	g++ $(CFLAGS) -c teller.cpp

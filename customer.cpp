@@ -9,6 +9,7 @@
 #include <iostream>
 
 #include "customer.h"
+#include "event.h"
 
 
 Customer::Customer(float simulationTime){
