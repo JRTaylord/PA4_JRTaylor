@@ -13,7 +13,7 @@
 
 class Teller {
 public:
-	ffloat idel; // idel time
+	float idel; // idel time
 
 	Teller(); // default constructor
 	~Teller(); // destructor
