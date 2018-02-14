@@ -5,7 +5,8 @@
 #include "eventQueue.h"
 #include <iostream>
 
-void eventQueue::createNode(event e){
+
+void eventQueue::createNode(event *e){
     node *temp = new node;
     temp->data = e;
     temp->next = NULL;
@@ -19,6 +20,7 @@ void eventQueue::createNode(event e){
     }
 }
 
+/*
 void eventQueue::display(){
     node *temp;
     temp=new node;
@@ -28,8 +30,9 @@ void eventQueue::display(){
         temp=temp->next;
     }
 }
+ */
 
-void eventQueue::insert_start(event value) {
+void eventQueue::insert_start(event *value) {
     node *temp;
     temp=new node;
     temp->data=value;
@@ -37,7 +40,7 @@ void eventQueue::insert_start(event value) {
     head=temp;
 }
 
-void eventQueue::insert_end(event value) {
+void eventQueue::insert_end(event *value) {
     node* temp;
     temp=new node;
     temp->data=value;
@@ -45,7 +48,7 @@ void eventQueue::insert_end(event value) {
     tail=temp;
 }
 
-void eventQueue::insert_position(int pos, event value) {
+void eventQueue::insert_position(int pos, event *value) {
     node *pre;
     node *cur;
     node *temp;

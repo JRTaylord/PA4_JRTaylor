@@ -14,7 +14,7 @@ using namespace std;
 // got code from tutorial at:
 // https://www.codementor.io/codementorteam/a-comprehensive-guide-to-implementation-of-singly-linked-list-using-c_plus_plus-ondlm5azr
 struct node {
-    event data;
+    event *data;
     node *next;
 };
 
@@ -23,11 +23,11 @@ class eventQueue {
         node *head, *tail;
     public:
         eventQueue();
-        void createNode(event e);
-        void display();
-        void insert_start(event value);
-        void insert_end(event value);
-        void insert_position(int pos, event value);
+        void createNode(event *e);
+        /*void display();*/
+        void insert_start(event *value);
+        void insert_end(event *value);
+        void insert_position(int pos, event *value);
         void delete_first();
         void delete_last();
         void delete_position(int pos);
