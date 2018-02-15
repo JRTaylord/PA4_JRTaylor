@@ -19,17 +19,15 @@ void eventQueue::createNode(event *e) {
 	}
 }
 
-
- void eventQueue::display(){
- node *temp;
- temp=new node;
- temp=head;
- while(temp!=NULL){
- cout << temp->data->time << "\t";
- temp=temp->next;
- }
- }
-
+void eventQueue::display() {
+	node *temp;
+	temp = new node;
+	temp = head;
+	while (temp != NULL) {
+		cout << temp->data->time << "\t";
+		temp = temp->next;
+	}
+}
 
 void eventQueue::insert_start(event *value) {
 	node *temp;
@@ -48,10 +46,11 @@ void eventQueue::insert_end(event *value) {
 }
 
 /* Adds event to the correct position in the tree
+ * by checking the time of arrival
  * @param event being inserted
  * @return void
  */
-void eventQueue::add(event *value) {
+bool eventQueue::add(event *value) {
 	node *pre;
 	node *cur;
 	node *temp;
@@ -59,11 +58,43 @@ void eventQueue::add(event *value) {
 	cur = new node;
 	temp = new node;
 	cur = head;
-//	while (tail != NULL || value->arrTime < ){
-//		return NULL;
-//	}
 
+	if (head == NULL) {
+		std::cout << "test\n";
+	}
 
+	bool isDone = false;
+
+	while (!isDone) {
+		if (cur == NULL) {
+			temp->data = value;
+			temp->next = NULL;
+			head = temp;
+			return true;
+		}
+
+		if (value->arrTime < cur->data->arrTime) {
+			temp->data = value;
+			pre->next = temp;
+			temp->next = cur;
+			return true;
+		}
+
+		if (tail == NULL) {
+			temp->data = value;
+			temp->next = NULL;
+			tail = temp;
+			return true;
+		}
+
+		if (value->arrTime > cur->data->arrTime) {
+			pre = cur;
+			cur = cur->next;
+		}
+
+	}
+
+	return false;
 
 }
 

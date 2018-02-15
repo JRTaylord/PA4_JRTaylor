@@ -25,7 +25,7 @@ class eventQueue {
         eventQueue(){
 
         }
-        void add(event *value);
+        bool add(event *value);
         void createNode(event *e);
         void display();
         void insert_start(event *value);
