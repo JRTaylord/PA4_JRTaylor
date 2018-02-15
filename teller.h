@@ -12,12 +12,20 @@
 #include <cstdlib>
 #include "event.h"
 
-class Teller {
+class Teller: public event {
 public:
+
+	float getArrTime();
+	float getProTime();
+	bool compare(event other);
 	float idel; // idel time
 
-	Teller(); // default constructor
-	~Teller(); // destructor
+	Teller(){
+		idel = 1;
+		time = 1;// default constructor
+	}
+	virtual ~Teller(){; // destructor
+	}
 private:
 
 };
