@@ -18,9 +18,12 @@ public:
 	float getProTime();
 	float arrTime; // time of arrival
 	float proTime; // time of being processed
+	event* test();
 
-	Customer(float simulationTime);
-	Customer() {
+	Customer(float simulationTime){
+		arrTime = simulationTime;
+	}
+	Customer(){
 		; // default constructor
 		arrTime = -1;
 		proTime = -1;

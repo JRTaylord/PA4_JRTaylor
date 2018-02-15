@@ -5,14 +5,14 @@
 
 #include "event.h"
 
-event::event(int itime){
-    time=itime;
-}
+//event::event(int itime){
+//    time=itime;
+//}
 
-bool event::compare(event other){
-    if (other.time<this->time){
-        return true;
-    } else{
-        return false;
-    }
-}
+//bool event::compare(event other){
+//    if (other.time<this->time){
+//        return true;
+//    } else{
+//        return false;
+//    }
+//}

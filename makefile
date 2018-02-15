@@ -16,10 +16,10 @@ event.o: event.cpp event.h
 eventQueue.o: eventQueue.cpp eventQueue.h
 	g++ $(CFLAGS) -c eventQueue.cpp
 
-customer.o: customer.cpp customer.h
+customer.o: customer.cpp event.cpp event.h customer.h
 	g++ $(CFLAGS) -c customer.cpp
 
-teller.o: teller.cpp teller.h
+teller.o: teller.cpp event.h teller.h
 	g++ $(CFLAGS) -c teller.cpp
 
 clean:

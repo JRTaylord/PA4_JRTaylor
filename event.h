@@ -5,11 +5,16 @@
 #ifndef PA4_JRTAYLOR_EVENT_H
 #define PA4_JRTAYLOR_EVENT_H
 
+#include <cstdlib>
+
 class event {
 public:
-	int time;
-	event(int itime);
+	//int time;
+	//event(int itime);
 	bool compare(event other);
+	virtual event* test(){
+		return NULL;
+	}
 
 	event();
 	~event();
