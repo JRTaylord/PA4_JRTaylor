@@ -8,28 +8,29 @@
 #include <cstdlib>
 
 class event {
-public:
-	int time;
-	//event(int itime);
-	virtual bool compare(event other){
-		return NULL;
-	}
-	virtual event* test(){
-		return NULL;
-	}
-	virtual float getArrTime(){
-		return NULL;
-	}
-	virtual float getProTime(){
-		return NULL;
-	}
+private:
 
+public:
 	float arrTime; // time of arrival
 	float proTime; // time of being processed
-	event(){
+	static int time;
+	float getArrTime() {
+		return arrTime;
 	}
-	~event(){
+	float getProTime() {
+		return proTime;
 	}
+	void setArrTime(float simulationTime) {
+		arrTime = simulationTime;
+	}
+
+	event() {
+		arrTime = -1;
+		proTime = -1;
+	}
+	~event() {
+	}
+
 };
 
 #endif //PA4_JRTAYLOR_EVENT_H

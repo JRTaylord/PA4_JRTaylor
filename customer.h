@@ -15,17 +15,11 @@
 class Customer: public event {
 public:
 
-	float getArrTime();
-	float getProTime();
-	bool compare(event other);
+	//bool compare(event other);
+	Customer() {
 
-	//event* test();
-
-	Customer(float simulationTime){
-		arrTime = simulationTime;
 	}
-	Customer();
-	virtual ~Customer(){
+	virtual ~Customer() {
 		// destructor
 	}
 private:

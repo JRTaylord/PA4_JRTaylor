@@ -16,6 +16,7 @@ using namespace std;
 struct node {
     event *data;
     node *next;
+    float arrTime; // arrTime;
 };
 
 class eventQueue {
@@ -23,9 +24,11 @@ class eventQueue {
         node *head, *tail;
     public:
         eventQueue(){
+        	head = NULL;
+        	tail = NULL;
 
         }
-        bool add(event *value);
+        void priorityAdd(event *value);
         void createNode(event *e);
         void display();
         void insert_start(event *value);

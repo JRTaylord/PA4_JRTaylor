@@ -51,13 +51,13 @@ int main(int argc, char *argv[]) {
 
 	eventQueue *singleLineEQ = new eventQueue();
 //
-	Customer* allCustomers = new Customer(simulationTime);
+	Customer* allCustomers = new Customer();
 	Teller* allTellers = new Teller();
 
-	singleLineEQ->add(allCustomers);
-	singleLineEQ->add(allTellers);
-	singleLineEQ->add(allCustomers);
-	singleLineEQ->add(allTellers);
+	singleLineEQ->priorityAdd(allCustomers);
+	singleLineEQ->priorityAdd(allTellers);
+	singleLineEQ->priorityAdd(allCustomers);
+		singleLineEQ->priorityAdd(allTellers);
 	singleLineEQ->display();
 
 	return 0;

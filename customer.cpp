@@ -13,18 +13,11 @@
 #include "event.h"
 
 
-float Customer::getArrTime(){
-	return arrTime;
-}
 
-float Customer::getProTime(){
-	return proTime;
-}
-
-bool Customer::compare(event other){
-    if (other.time<this->time){
-        return true;
-    } else{
-        return false;
-    }
-}
+//bool Customer::compare(event other){
+//    if (other.time<this->time){
+//        return true;
+//    } else{
+//        return false;
+//    }
+//}

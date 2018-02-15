@@ -15,14 +15,11 @@
 class Teller: public event {
 public:
 
-	float getArrTime();
-	float getProTime();
-	bool compare(event other);
+	//bool compare(event other);
 	float idel; // idel time
 
 	Teller(){
 		idel = 1;
-		time = 1;// default constructor
 	}
 	virtual ~Teller(){; // destructor
 	}

@@ -3,6 +3,7 @@
 //
 
 #include "eventQueue.h"
+#include "event.h"
 #include <iostream>
 
 void eventQueue::createNode(event *e) {
@@ -24,7 +25,7 @@ void eventQueue::display() {
 	temp = new node;
 	temp = head;
 	while (temp != NULL) {
-		cout << temp->data->time << "\t";
+		cout << temp->data->getArrTime() << "\t";
 		temp = temp->next;
 	}
 }
@@ -44,57 +45,75 @@ void eventQueue::insert_end(event *value) {
 	temp->next = NULL;
 	tail = temp;
 }
-
+// Followed this example: http://www.sanfoundry.com/cpp-program-implements-priority-queue/
 /* Adds event to the correct position in the tree
  * by checking the time of arrival
  * @param event being inserted
  * @return void
  */
-bool eventQueue::add(event *value) {
-	node *pre;
-	node *cur;
-	node *temp;
-	pre = new node;
-	cur = new node;
+void eventQueue::priorityAdd(event *value) {
+
+	node *temp, *temp1;
 	temp = new node;
-	cur = head;
-
-	if (head == NULL) {
-		std::cout << "test\n";
+	temp->data = value;
+	temp->arrTime = value->getArrTime(); // Priority
+	if (head == NULL || value->getArrTime() < head->arrTime) {
+		temp->next = head;
+		head = temp;
+	} else {
+		temp1 = head;
+		//q->link->priority <= priority)
+		while (temp1->next != NULL && temp1->data->getArrTime() <= value->getArrTime()) {
+			temp1 = temp1->next;
+			temp->next = temp1->next;
+			temp1->next = temp;
+		}
 	}
 
-	bool isDone = false;
-
-	while (!isDone) {
-		if (cur == NULL) {
-			temp->data = value;
-			temp->next = NULL;
-			head = temp;
-			return true;
-		}
-
-		if (value->arrTime < cur->data->arrTime) {
-			temp->data = value;
-			pre->next = temp;
-			temp->next = cur;
-			return true;
-		}
-
-		if (tail == NULL) {
-			temp->data = value;
-			temp->next = NULL;
-			tail = temp;
-			return true;
-		}
-
-		if (value->arrTime > cur->data->arrTime) {
-			pre = cur;
-			cur = cur->next;
-		}
-
-	}
-
-	return false;
+//	node *pre;
+//	node *cur;
+//	node *temp;
+//	pre = new node;
+//	cur = new node;
+//
+//	cur = head;
+//
+//	if (head == NULL) {
+//		std::cout << "test\n";
+//	}
+//
+//	bool isDone = false;
+//
+//	while (!isDone) {
+//		if (cur == NULL) {
+//			temp->data = value;
+//			temp->next = NULL;
+//			head = temp;
+//			return true;
+//		}
+//
+//		if (value->arrTime < cur->data->arrTime) {
+//			temp->data = value;
+//			pre->next = temp;
+//			temp->next = cur;
+//			return true;
+//		}
+//
+//		if (tail == NULL) {
+//			temp->data = value;
+//			temp->next = NULL;
+//			tail = temp;
+//			return true;
+//		}
+//
+//		if (value->arrTime > cur->data->arrTime) {
+//			pre = cur;
+//			cur = cur->next;
+//		}
+//
+//	}
+//
+//	return false;
 
 }
 
