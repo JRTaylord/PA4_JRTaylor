@@ -21,3 +21,10 @@ float Customer::getProTime(){
 	return proTime;
 }
 
+bool Customer::compare(event other){
+    if (other.time<this->time){
+        return true;
+    } else{
+        return false;
+    }
+}

@@ -22,9 +22,12 @@ class eventQueue {
     private:
         node *head, *tail;
     public:
-        eventQueue();
+        eventQueue(){
+
+        }
+        void add(event *value);
         void createNode(event *e);
-        /*void display();*/
+        void display();
         void insert_start(event *value);
         void insert_end(event *value);
         void insert_position(int pos, event *value);

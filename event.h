@@ -9,15 +9,27 @@
 
 class event {
 public:
-	//int time;
+	int time;
 	//event(int itime);
-	bool compare(event other);
+	virtual bool compare(event other){
+		return NULL;
+	}
 	virtual event* test(){
 		return NULL;
 	}
+	virtual float getArrTime(){
+		return NULL;
+	}
+	virtual float getProTime(){
+		return NULL;
+	}
 
-	event();
-	~event();
+	float arrTime; // time of arrival
+	float proTime; // time of being processed
+	event(){
+	}
+	~event(){
+	}
 };
 
 #endif //PA4_JRTAYLOR_EVENT_H

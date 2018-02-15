@@ -11,53 +11,55 @@
 
 using namespace std;
 
+int main(int argc, char *argv[]) {
+	srand(time(0));
 
-int main(int argc, char *argv[]){
-    srand(time(0));
+	//interpreting command line arguments
+	// total number of customers and tellers
+	int customers, tellers;
+	// time in unit of minutes
+	float simulationTime, averageServiceTime;
+	// random seed for program
+	unsigned int seed;
 
-    //interpreting command line arguments
-    // total number of customers and tellers
-    int customers, tellers;
-    // time in unit of minutes
-    float simulationTime, averageServiceTime;
-    // random seed for program
-    unsigned int seed;
+	if (argc != 5 && argc != 6) {
+		std::cout << "The command line arguments are invalid!\n";
+		std::cout
+				<< "./qSim #customers #tellers simulationTime averageServiceTime <seed>\n";
+		return EXIT_FAILURE;
+	}
 
-    if (argc != 5 && argc != 6) {
-        std::cout << "The command line arguments are invalid!\n";
-        std::cout
-                << "./qSim #customers #tellers simulationTime averageServiceTime <seed>\n";
-        return EXIT_FAILURE;
-    }
+	// Initializes command line arguments
+	customers = atoi(argv[1]);
+	tellers = atoi(argv[2]);
+	simulationTime = atof(argv[3]);
+	averageServiceTime = atof(argv[4]);
 
-    // Initializes command line arguments
-    customers = atoi(argv[1]);
-    tellers = atoi(argv[2]);
-    simulationTime = atof(argv[3]);
-    averageServiceTime = atof(argv[4]);
+	switch (argc) {
+	case 5:
+		seed = rand();
+		srand(seed);
+		break;
+	case 6:
+		seed = atoi(argv[5]);
+		srand(seed);
+		break;
+	}
 
-    switch (argc) {
-        case 5:
-            seed = rand();
-            srand(seed);
-            break;
-        case 6:
-            seed = atoi(argv[5]);
-            srand(seed);
-            break;
-    }
+	//*************************************************************************
+	// Start of single line
 
-
-    //*************************************************************************
-    // Start of single line
-
-//    eventQueue *singleLineEQ = new eventQueue();
+	eventQueue *singleLineEQ = new eventQueue();
 //
-//    Customer* allCustomers = new Customer();
-//    Teller* allTellers = new Teller();
+	Customer* allCustomers = new Customer(simulationTime);
+    Teller* allTellers = new Teller();
+
+    singleLineEQ->insert_start(allCustomers);
+    singleLineEQ->insert_start(allTellers);
+    singleLineEQ->display();
 
 
 
 
-    return 0;
+	return 0;
 }

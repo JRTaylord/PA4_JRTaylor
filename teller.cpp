@@ -10,5 +10,20 @@
 
 #include "teller.h"
 
+float Teller::getArrTime(){
+	return arrTime;
+}
+
+float Teller::getProTime(){
+	return proTime;
+}
+
+bool Teller::compare(event other){
+    if (other.time<this->time){
+        return true;
+    } else{
+        return false;
+    }
+}
 
 
