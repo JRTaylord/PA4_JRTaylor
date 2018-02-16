@@ -60,6 +60,7 @@ int main(int argc, char *argv[]) {
 
     for (int i = 0; i < customers; ++i) {
         singleLineEQ->priorityAdd(new event(simulationTime, tellers));
+        printf("Added %d customers\n", i);
     }
 
     //singleLineEQ->display();
