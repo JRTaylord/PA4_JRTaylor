@@ -61,9 +61,10 @@ void eventQueue::insert_end(event *value) {
  */
 void eventQueue::priorityAdd(event *value) {
 
-	node *temp, *temp1;
+	node *temp, *temp1, *temp2;
 	temp = new node;
     temp1 = new node;
+    temp2 = new node;
 	temp->data = value;
 	temp->arrTime = value->getArrTime(); // Priority
 	if (head == NULL || value->getArrTime() < head->arrTime) {
@@ -74,6 +75,13 @@ void eventQueue::priorityAdd(event *value) {
 		//q->link->priority <= priority)
         // TODO: Solve infinite loop here
 		while (temp1->next != NULL && temp1->data->getArrTime() <= value->getArrTime()) {
+            // checks if the input value's time is less than the next and greater than the previous
+            if(temp->data->getArrTime() >= temp1->data->getArrTime()){
+                temp2 = temp1->next;
+                temp->next = temp2;
+                temp1->next = temp;
+                break;
+            }
 			temp1 = temp1->next;
 			temp->next = temp1->next;
 			temp1->next = temp;
