@@ -10,6 +10,10 @@
 
 #include "teller.h"
 
+void Teller::Teller() {
+
+}
+
 //bool Teller::compare(event other) {
 //	if (other.time < this->time) {
 //		return true;

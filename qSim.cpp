@@ -44,22 +44,50 @@ int main(int argc, char *argv[]) {
 		seed = atoi(argv[5]);
 		srand(seed);
 		break;
-	}
+    }
 
-	//*************************************************************************
-	// Start of single line
+    Teller allTellers[tellers];
+    for (int i = 0; i < tellers; ++i) {
+        //allTellers[i]=new Teller();
+    }
 
-	eventQueue *singleLineEQ = new eventQueue();
-//
-	Customer* allCustomers = new Customer();
-	Teller* allTellers = new Teller();
+    //*************************************************************************
+    // Start of single line
+
+    eventQueue *singleLineEQ = new eventQueue();
 
 
     for (int i = 0; i < customers; ++i) {
         singleLineEQ->priorityAdd(new Customer);
     }
 
-	singleLineEQ->display();
+    singleLineEQ->display();
+
+
+
+    for(int time = 0; time < simulationTime; time+=.01){
+        // checks each teller to process new customers
+        for (int i = 0; i < tellers; ++i) {
+            Customer cur;
+            // retrieves the first event if the time is less than or equal to the current time
+            singleLineEQ;
+        }
+    }
+
+
+
+    //*************************************************************************
+    // Start of multi line
+
+    eventQueue *multiLineEQ;
+    for(int time = 0; time < simulationTime; time+=.01){
+        // checks each teller to process new customers
+        for (int i = 0; i < tellers; ++i) {
+            Customer cur;
+            // retrieves the first event if the time is less than or equal to the current time
+            multiLineEQ;
+        }
+    }
 
 	return 0;
 }

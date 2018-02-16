@@ -16,11 +16,9 @@ class Teller: public event {
 public:
 
 	//bool compare(event other);
-	float idel; // idel time
+	float idle; // idle time
 
-	Teller(){
-		idel = 1;
-	}
+	Teller();
 	virtual ~Teller(){; // destructor
 	}
 private:
