@@ -4,12 +4,57 @@
 #include <iostream>
 #include <cstdlib>
 #include <queue>
+#include <cmath>
 #include "event.h"
 #include "eventQueue.h"
 #include "teller.h"
 #include "customer.h"
 
 using namespace std;
+using std::cout;
+using std::endl;
+
+/**
+ * calculates the standard deviation of the customer service time dataset
+ * credit to https://www.programiz.com/cpp-programming/examples/standard-deviation for this code
+ * @param customerTimes
+ * @param customersServed
+ * @return the standard deviation
+ */
+float calculateSD(int customerTimes[], int customersServed) {
+    float sum = 0.0, mean, standardDeviation = 0.0;
+
+    int i;
+
+    for(i = 0; i < customersServed; ++i)
+    {
+        sum += customerTimes[i];
+    }
+
+    mean = sum/10;
+
+    for(i = 0; i < 10; ++i)
+        standardDeviation += pow(customerTimes[i] - mean, 2);
+
+    return sqrt(standardDeviation / 10);
+}
+
+/**
+ * Prints the statistics from the test
+ * @param customerTimes an array of integers representing the service times for customers
+ * @param customersServed the number of customers served
+ */
+void printStatistics(int customerTimes[], int customersServed){
+    double avgServiceTime;
+    avgServiceTime = 0;
+    for (int i = 0; i < customersServed; ++i) {
+        avgServiceTime += customerTimes[i];
+    }
+    avgServiceTime = avgServiceTime / customersServed;
+    cout << "Customers Served: " << customersServed << endl;
+    cout << "Average Service Time: " << avgServiceTime << endl;
+    cout << "Standard Deviation: " << calculateSD(customerTimes, customersServed) << endl;
+}
 
 int main(int argc, char *argv[]) {
 	srand(time(0));
@@ -23,8 +68,8 @@ int main(int argc, char *argv[]) {
 	unsigned int seed;
 
 	if (argc != 5 && argc != 6) {
-		std::cout << "The command line arguments are invalid!\n";
-		std::cout
+		cout << "The command line arguments are invalid!\n";
+		cout
 				<< "./qSim #customers #tellers simulationTime averageServiceTime <seed>\n";
 		return EXIT_FAILURE;
 	}
@@ -60,8 +105,6 @@ int main(int argc, char *argv[]) {
 
     for (int i = 0; i < customers; ++i) {
         singleLineEQ->priorityAdd(new event(simulationTime, tellers));
-        printf("Added %d customers\n", i);
-        printf("Earliest arrival time %d\n", singleLineEQ->getFirst()->getArrTime());
     }
 
     //singleLineEQ->display();
@@ -88,6 +131,8 @@ int main(int argc, char *argv[]) {
             }
         }
     }
+
+    printStatistics(sLProcessingTimes, curCust);
 
 
 

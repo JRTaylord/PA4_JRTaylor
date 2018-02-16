@@ -9,8 +9,18 @@ event *eventQueue::getFirst() {
     return head->data;
 }
 
+/**
+ * for getting an event at the given index
+ * @param index
+ * @return
+ */
 event *eventQueue::getIndex(int index) {
-
+    node *cur = new node;
+    cur = head;
+    for (int i = 0; i < index; ++i) {
+        cur = cur->next;
+    }
+    return cur->data;
 }
 
 void eventQueue::createNode(event *e) {
