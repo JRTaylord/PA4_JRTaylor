@@ -4,7 +4,6 @@
 
 #include "eventQueue.h"
 #include "event.h"
-#include <iostream>
 
 event *eventQueue::getFirst() {
     return head->data;
@@ -77,9 +76,18 @@ void eventQueue::priorityAdd(event *value) {
 		while (temp1->next != NULL && temp1->data->getArrTime() <= value->getArrTime()) {
             // checks if the input value's time is less than the next and greater than the previous
             if(temp->data->getArrTime() >= temp1->data->getArrTime()){
-                temp2 = temp1->next;
-                temp->next = temp2;
-                temp1->next = temp;
+                // path for setting a new tail
+                if(temp1->next == NULL){
+                    temp->next = NULL;
+                    temp1->next = temp;
+                    tail = temp;
+                }
+                // path for inserting within the list
+                else{
+                    temp2 = temp1->next;
+                    temp->next = temp2;
+                    temp1->next = temp;
+                }
                 break;
             }
 			temp1 = temp1->next;

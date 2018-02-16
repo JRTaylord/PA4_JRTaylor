@@ -61,6 +61,7 @@ int main(int argc, char *argv[]) {
     for (int i = 0; i < customers; ++i) {
         singleLineEQ->priorityAdd(new event(simulationTime, tellers));
         printf("Added %d customers\n", i);
+        printf("Earliest arrival time %d\n", singleLineEQ->getFirst()->getArrTime());
     }
 
     //singleLineEQ->display();
