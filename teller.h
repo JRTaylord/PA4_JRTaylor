@@ -11,17 +11,28 @@
 #include <cstdio>
 #include <cstdlib>
 #include "event.h"
+//
+
+const int IDLE_MAX = 160;
 
 class Teller: public event {
 public:
-
-	//bool compare(event other);
-	float idle; // idle time
-
+	int getIdle(); //gets random time
+	int getActiveTime(); // gets active time
+	bool getIsOpen();
+	void setActiveTime(int currentTime, int addTime); // sets active time
 	Teller();
 	virtual ~Teller(){; // destructor
 	}
+
+
 private:
+	// random idle time between 0 - IDEL_MAX
+	int idleTime;
+	// time till teller is activated
+	// takes current world time and adds length needed for processing
+	int activeTime;
+	bool isOpen; // true if teller is able to process
 
 };
 
