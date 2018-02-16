@@ -8,29 +8,16 @@
 #include <cstdlib>
 
 class event {
-private:
-
-public:
-	event *next;
-	float arrTime; // time of arrival
-	float proTime; // time of being processed
-	static int time;
-	float getArrTime() {
-		return arrTime;
-	}
-	float getProTime() {
-		return proTime;
-	}
-	void setArrTime(float simulationTime) {
-		arrTime = simulationTime;
-	}
-
-	event() {
-		arrTime = -1;
-		proTime = -1;
-	}
-	~event() {
-	}
+	public:
+		event *next;
+		int arrTime; // time of arrival
+		int proTime; // time of being processed
+		int line;
+		int getArrTime();
+		int getLine();
+		event();
+		event(int simTime, int rand);
+		~event();
 
 };
 

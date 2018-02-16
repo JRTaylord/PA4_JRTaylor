@@ -18,7 +18,7 @@ int main(int argc, char *argv[]) {
 	// total number of customers and tellers
 	int customers, tellers;
 	// time in unit of minutes
-	float simulationTime, averageServiceTime;
+	int simulationTime, averageServiceTime;
 	// random seed for program
 	unsigned int seed;
 
@@ -58,19 +58,22 @@ int main(int argc, char *argv[]) {
 
 
     for (int i = 0; i < customers; ++i) {
-        singleLineEQ->priorityAdd(new Customer);
+        singleLineEQ->priorityAdd(new event(simulationTime, tellers));
     }
 
     singleLineEQ->display();
 
 
-
-    for(int time = 0; time < simulationTime; time+=.01){
-        // checks each teller to process new customers
-        for (int i = 0; i < tellers; ++i) {
-            Customer cur;
-            // retrieves the first event if the time is less than or equal to the current time
-            singleLineEQ;
+    for(int time = 0; time < simulationTime; time++){
+        // retrieves the first event if the time is less than or equal to the current time
+        event *c=singleLineEQ->getFirst();
+        if(c->getArrTime()<=time){
+            // checks each teller to process new customers
+            for (int i = 0; i < tellers; ++i) {
+                // TODO: include method to check if the teller is available;
+                singleLineEQ->delete_first();
+                break;
+            }
         }
     }
 
@@ -79,6 +82,7 @@ int main(int argc, char *argv[]) {
     //*************************************************************************
     // Start of multi line
 
+    /*
     eventQueue *multiLineEQ;
     for(int time = 0; time < simulationTime; time+=.01){
         // checks each teller to process new customers
@@ -87,7 +91,7 @@ int main(int argc, char *argv[]) {
             // retrieves the first event if the time is less than or equal to the current time
             multiLineEQ;
         }
-    }
+    }*/
 
 	return 0;
 }

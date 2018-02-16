@@ -6,6 +6,14 @@
 #include "event.h"
 #include <iostream>
 
+event *eventQueue::getFirst() {
+    return head->data;
+}
+
+event *eventQueue::getIndex(int index) {
+
+}
+
 void eventQueue::createNode(event *e) {
 	node *temp = new node;
 	temp->data = e;

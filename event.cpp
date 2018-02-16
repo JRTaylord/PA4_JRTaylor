@@ -5,14 +5,39 @@
 
 #include "event.h"
 
-//event::event(int itime){
-//    time=itime;
-//}
+/**
+ * Blank constructor
+ */
+event::event(){
+}
 
-//bool event::compare(event other){
-//    if (other.time<this->time){
-//        return true;
-//    } else{
-//        return false;
-//    }
-//}
+/**
+ * Common constructor
+ * @param simTime
+ * @param tellers
+ */
+event::event(int simTime, int tellers){
+    arrTime = rand()%simTime;
+    line = rand()%tellers;
+}
+
+/**
+ *
+ * @return arrival time
+ */
+int event::getArrTime(){
+    return arrTime;
+}
+
+/**
+ *
+ * @return what line the customer is in
+ */
+int event::getLine() {
+    return line;
+}
+
+/**
+ * destructor for an event
+ */
+event::~event() {}

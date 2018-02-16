@@ -28,6 +28,8 @@ class eventQueue {
         	tail = NULL;
 
         }
+        event *getFirst();
+        event *getIndex(int index);
         void priorityAdd(event *value);
         void createNode(event *e);
         void display();
