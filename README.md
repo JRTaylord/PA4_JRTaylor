@@ -18,6 +18,7 @@ customers (int) is the number of customers, tellers(int) is the number of teller
 
 Here is examples of running the program
 > ./qSim 100 4 60 2 3
+
 > ./qSim 50 2 34 3
 
 Program Structure:
