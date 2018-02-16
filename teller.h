@@ -15,12 +15,11 @@
 
 const int IDLE_MAX = 160;
 
-class Teller: public event {
+class Teller{
 public:
 	int getIdle(); //gets random time
 	int getActiveTime(); // gets active time
-	bool getIsOpen();
-	void setActiveTime(int currentTime, int addTime); // sets active time
+	void setActiveTime(int currentTime); // sets active time
 	Teller();
 	virtual ~Teller(){; // destructor
 	}

@@ -46,9 +46,10 @@ int main(int argc, char *argv[]) {
 		break;
     }
 
-    Teller allTellers[tellers];
+    Teller *allTellers[tellers];
     for (int i = 0; i < tellers; ++i) {
-        //allTellers[i]=new Teller();
+        Teller *t = new Teller();
+        allTellers[i] = t;
     }
 
     //*************************************************************************
@@ -61,8 +62,11 @@ int main(int argc, char *argv[]) {
         singleLineEQ->priorityAdd(new event(simulationTime, tellers));
     }
 
-    singleLineEQ->display();
+    //singleLineEQ->display();
 
+    // Statistical trackers
+    int sLProcessingTimes[customers];
+    int curCust=0;
 
     for(int time = 0; time < simulationTime; time++){
         // retrieves the first event if the time is less than or equal to the current time
@@ -70,9 +74,15 @@ int main(int argc, char *argv[]) {
         if(c->getArrTime()<=time){
             // checks each teller to process new customers
             for (int i = 0; i < tellers; ++i) {
-                // TODO: include method to check if the teller is available;
-                singleLineEQ->delete_first();
-                break;
+                if(allTellers[i]->getActiveTime() <= time){
+                    event *e=singleLineEQ->getFirst();
+                    if(e->getArrTime() <= time){
+                        sLProcessingTimes[curCust] = (time - e->getArrTime());
+                        curCust++;
+                        singleLineEQ->delete_first();
+                        allTellers[i]->setActiveTime(time);
+                    }
+                }
             }
         }
     }

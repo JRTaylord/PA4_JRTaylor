@@ -18,7 +18,6 @@ Teller::Teller(){
 	// converts to minutes
 	idleTime = (rand() % IDLE_MAX) / 60;
 	activeTime = -1;
-	isOpen = true;
 }
 
 /** getter for active time
@@ -35,20 +34,13 @@ int Teller::getIdle(){
 	return idleTime;
 }
 
-/** getter for isOpen
- * @return isOpen
- */
-bool Teller::getIsOpen(){
-	return isOpen;
-}
-
 /** Sets active time to the current global time + the time
  *  of the current action the teller is doing
  *  @param currentTime current global time
  *  @param addTime time of the action of the teller
  *  @return void
  */
-void Teller::setActiveTime(int currentTime, int addTime){
-	activeTime = currentTime + addTime;
+void Teller::setActiveTime(int currentTime){
+	activeTime = currentTime + idleTime;
 }
 
