@@ -15,15 +15,17 @@
 class Customer: public event {
 public:
 
-	//bool compare(event other);
-	Customer() {
+	float getArrTime(); //gets arrival time
+	float getProTime(); //gets processing time
+	int getLine(); // gets line number
+	// constructor
+	Customer(float simulationTime, int tellers);
 
-	}
-	virtual ~Customer() {
-		// destructor
-	}
+	Customer(); // basic constructor
+	~Customer();// basic deconstructor
+
 private:
-
+	int line; // pre determined line
 };
 
 #endif /* CUSTOMER_H_ */

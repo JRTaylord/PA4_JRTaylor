@@ -11,6 +11,7 @@ class event {
 private:
 
 public:
+	event *next;
 	float arrTime; // time of arrival
 	float proTime; // time of being processed
 	static int time;
