@@ -54,10 +54,11 @@ int main(int argc, char *argv[]) {
 	Customer* allCustomers = new Customer();
 	Teller* allTellers = new Teller();
 
-	singleLineEQ->priorityAdd(allCustomers);
-	singleLineEQ->priorityAdd(allTellers);
-	singleLineEQ->priorityAdd(allCustomers);
-		singleLineEQ->priorityAdd(allTellers);
+
+    for (int i = 0; i < customers; ++i) {
+        singleLineEQ->priorityAdd(new Customer);
+    }
+
 	singleLineEQ->display();
 
 	return 0;
