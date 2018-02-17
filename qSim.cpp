@@ -4,13 +4,11 @@
  */
 
 #include <iostream>
-#include <cstdlib>
 #include <queue>
 #include <cmath>
 #include "event.h"
 #include "eventQueue.h"
 #include "teller.h"
-#include "customer.h"
 
 using namespace std;
 using std::cout;

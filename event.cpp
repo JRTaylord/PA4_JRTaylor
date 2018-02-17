@@ -6,7 +6,7 @@
 #include "event.h"
 
 /**
- * Blank constructor
+ * Blank constructor for
  */
 event::event(){
 }
