@@ -33,6 +33,11 @@ float calculateSD(int customerTimes[], int customersServed) {
 
     mean = sum/10;
 
+    /* Calculates standard deviation
+     * Precondition: customerTimes has times and customersServed contains
+     * the size of customerTimes
+     * Postcondition: SD is calculated
+     */
     for(i = 0; i < 10; ++i)
         standardDeviation += pow(customerTimes[i] - mean, 2);
 
@@ -81,6 +86,7 @@ int main(int argc, char *argv[]) {
 	simulationTime = atof(argv[3]);
 	averageServiceTime = atof(argv[4]);
 
+
 	switch (argc) {
 	case 5:
 		seed = rand();
@@ -98,6 +104,8 @@ int main(int argc, char *argv[]) {
         allTellers[i] = t;
     }
 
+
+
     //*************************************************************************
     // Start of single line
 
@@ -114,6 +122,10 @@ int main(int argc, char *argv[]) {
     int sLProcessingTimes[customers];
     int curCust=0;
 
+    /* Runs the single line bank simulation
+     * Preconditions: simulationTime must be declared and tellers and customers must be created
+     * Postconditions: events will go through line and be processed
+     */
     for(int time = 0; time < simulationTime; time++){
         // retrieves the first event if the time is less than or equal to the current time
         event *c=singleLineEQ->getFirst();
@@ -154,6 +166,7 @@ int main(int argc, char *argv[]) {
     for (int i = 0; i < tellers; ++i) {
             delete allTellers[i];
         }
+
 
 	return 0;
 }
