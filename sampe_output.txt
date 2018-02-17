@@ -1,0 +1,17 @@
+./qSim 100 4  40 2
+
+Customers Served: 19
+Average Service Time: 11.9474 minutes
+Standard Deviation: 17.6695 minutes
+
+./qSim 90 10 100 1
+
+Customers Served: 76
+Average Service Time: 43.4737
+Standard Deviation: 309.562
+
+./qSim 40 4 10 1
+
+Customers Served: 9
+Average Service Time: 3.55556
+Standard Deviation: 3.28024
