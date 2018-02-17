@@ -25,6 +25,14 @@ Program Structure:
 This program consists of 4 main classes. The Teller and Customer classes store the required information for each respective class and also inherit the event class. The event class is important because it contains a variable holding the next event. This variable holding the next event allows for the EventQueue class to work, by making events a linked list.
 
 Stats:
-not done yet
+Our statistics generated so far been consistent in terms of mean processing time, but not standard-deviation. Our standard-deviations have been varying by a large degree.
+
+Borrowed code:
+For the linked list we followed a tutorial found at:
+  
+https://www.codementor.io/codementorteam/a-comprehensive-guide-to-implementation-of-singly-linked-list-using-c_plus_plus-ondlm5azr
+
+To calculate standard deviation we used a function found at: 
+https://www.programiz.com/cpp-programming/examples/standard-deviation  
 
 
