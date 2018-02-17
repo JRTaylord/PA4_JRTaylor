@@ -12,9 +12,9 @@ event::event(){
 }
 
 /**
- * Common constructor
- * @param simTime
- * @param tellers
+ * Normally used constructor
+ * @param simTime the max time for the simulation to run
+ * @param tellers the number of tellers, used to assign to a random line
  */
 event::event(int simTime, int tellers){
     arrTime = rand()%simTime;
@@ -22,7 +22,6 @@ event::event(int simTime, int tellers){
 }
 
 /**
- *
  * @return arrival time
  */
 int event::getArrTime(){
@@ -30,7 +29,6 @@ int event::getArrTime(){
 }
 
 /**
- *
  * @return what line the customer is in
  */
 int event::getLine() {

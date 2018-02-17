@@ -1,6 +1,8 @@
-//
-// Created by student on 2/10/18.
-//
+/*
+ * PA4_the_murder - Jacob Tutlis - jjtutlis - James Taylor - jrtaylor
+ * Created by jrtaylor on 2/10/18.
+ */
+
 #include <iostream>
 #include <cstdlib>
 #include <queue>
@@ -44,15 +46,17 @@ float calculateSD(int customerTimes[], int customersServed) {
  * @param customerTimes an array of integers representing the service times for customers
  * @param customersServed the number of customers served
  */
-void printStatistics(int customerTimes[], int customersServed){
+void printStatistics(int customerTimes[], int customersServed, int totalCustomers){
+    // Average service time calculation
     double avgServiceTime;
     avgServiceTime = 0;
     for (int i = 0; i < customersServed; ++i) {
         avgServiceTime += customerTimes[i];
     }
     avgServiceTime = avgServiceTime / customersServed;
-    cout << "Customers Served: " << customersServed << endl;
-    cout << "Average Service Time: " << avgServiceTime << endl;
+    // Printing
+    cout << "Customers Served: " << customersServed << " of " << totalCustomers << endl;
+    cout << "Average Service Time: " << avgServiceTime << " minutes" << endl;
     cout << "Standard Deviation: " << calculateSD(customerTimes, customersServed) << endl;
 }
 
@@ -68,9 +72,8 @@ int main(int argc, char *argv[]) {
 	unsigned int seed;
 
 	if (argc != 5 && argc != 6) {
-		cout << "The command line arguments are invalid!\n";
-		cout
-				<< "./qSim #customers #tellers simulationTime averageServiceTime <seed>\n";
+		cout << "The command line arguments are invalid!" << endl;
+		cout << "./qSim #customers #tellers simulationTime averageServiceTime <seed>" << endl;
 		return EXIT_FAILURE;
 	}
 
@@ -119,6 +122,7 @@ int main(int argc, char *argv[]) {
         if(c->getArrTime()<=time){
             // checks each teller to process new customers
             for (int i = 0; i < tellers; ++i) {
+                // if the given teller is active, have them check the line
                 if(allTellers[i]->getActiveTime() <= time){
                     event *e=singleLineEQ->getFirst();
                     if(e->getArrTime() <= time){
@@ -132,9 +136,7 @@ int main(int argc, char *argv[]) {
         }
     }
 
-    printStatistics(sLProcessingTimes, curCust);
-
-
+    printStatistics(sLProcessingTimes, curCust, customers);
 
     //*************************************************************************
     // Start of multi line
