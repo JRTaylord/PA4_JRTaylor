@@ -24,6 +24,11 @@ event *eventQueue::getIndex(int index) {
     return cur->data;
 }
 
+/*
+ * creates a new event node
+ * @param event new event
+ * @return void
+ */
 void eventQueue::createNode(event *e) {
 	node *temp = new node;
 	temp->data = e;
@@ -38,6 +43,9 @@ void eventQueue::createNode(event *e) {
 	}
 }
 
+/* displays all the nodes in linked list
+ * @return void
+ */
 void eventQueue::display() {
 	node *temp;
 	temp = new node;
@@ -48,6 +56,10 @@ void eventQueue::display() {
 	}
 }
 
+/* adds event to the start of the linked list
+ * @param value event being added
+ * @return void
+ */
 void eventQueue::insert_start(event *value) {
 	node *temp;
 	temp = new node;
@@ -56,17 +68,8 @@ void eventQueue::insert_start(event *value) {
 	head = temp;
 }
 
-void eventQueue::insert_end(event *value) {
-	node* temp;
-	temp = new node;
-	temp->data = value;
-	temp->next = NULL;
-	tail = temp;
-}
-// Followed this example: http://www.sanfoundry.com/cpp-program-implements-priority-queue/
-/* Adds event to the correct position in the tree
- * by checking the time of arrival
- * @param event being inserted
+/* adds event to the correct position of the linked list
+ * @param value event being added
  * @return void
  */
 void eventQueue::priorityAdd(event *value) {
@@ -107,53 +110,13 @@ void eventQueue::priorityAdd(event *value) {
 		}
 	}
 
-//	node *pre;
-//	node *cur;
-//	node *temp;
-//	pre = new node;
-//	cur = new node;
-//
-//	cur = head;
-//
-//	if (head == NULL) {
-//		std::cout << "test\n";
-//	}
-//
-//	bool isDone = false;
-//
-//	while (!isDone) {
-//		if (cur == NULL) {
-//			temp->data = value;
-//			temp->next = NULL;
-//			head = temp;
-//			return true;
-//		}
-//
-//		if (value->arrTime < cur->data->arrTime) {
-//			temp->data = value;
-//			pre->next = temp;
-//			temp->next = cur;
-//			return true;
-//		}
-//
-//		if (tail == NULL) {
-//			temp->data = value;
-//			temp->next = NULL;
-//			tail = temp;
-//			return true;
-//		}
-//
-//		if (value->arrTime > cur->data->arrTime) {
-//			pre = cur;
-//			cur = cur->next;
-//		}
-//
-//	}
-//
-//	return false;
-
 }
 
+/* adds event to a certain position of the linked list
+ * @param pos desired pos to be added
+ * @param value event being added
+ * @return void
+ */
 void eventQueue::insert_position(int pos, event *value) {
 	node *pre;
 	node *cur;
@@ -171,6 +134,9 @@ void eventQueue::insert_position(int pos, event *value) {
 	temp->next = cur;
 }
 
+/* removes head of the linked list
+ * @return void
+ */
 void eventQueue::delete_first() {
 	node *temp;
 	temp = head;
@@ -178,26 +144,4 @@ void eventQueue::delete_first() {
 	delete temp;
 }
 
-void eventQueue::delete_last() {
-	node *cur = new node;
-	node *prev = new node;
-	cur = head;
-	while (cur->next != NULL) {
-		prev = cur;
-		cur = cur->next;
-	}
-	tail = prev;
-	prev->next = NULL;
-	delete cur;
-}
 
-void eventQueue::delete_position(int pos) {
-	node *cur = new node;
-	node *prev = new node;
-	cur = head;
-	for (int i = 1; i < pos; ++i) {
-		prev = cur;
-		cur = cur->next;
-	}
-	prev->next = cur->next;
-}

@@ -35,11 +35,8 @@ class eventQueue {
         void createNode(event *e);
         void display();
         void insert_start(event *value);
-        void insert_end(event *value);
         void insert_position(int pos, event *value);
         void delete_first();
-        void delete_last();
-        void delete_position(int pos);
 };
 
 
