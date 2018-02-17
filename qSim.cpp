@@ -150,5 +150,10 @@ int main(int argc, char *argv[]) {
         }
     }*/
 
+    // deletes tellers
+    for (int i = 0; i < tellers; ++i) {
+            delete allTellers[i];
+        }
+
 	return 0;
 }

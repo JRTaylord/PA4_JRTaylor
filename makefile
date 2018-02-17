@@ -4,10 +4,10 @@ all: qSim
 # Set CFLAGS to allow Debug and issue all warnings.
 
 
-qSim: qSim.o event.o eventQueue.o customer.o teller.o
-	g++ $(CFLAGS) qSim.o event.o eventQueue.o customer.o teller.o -o qSim
+qSim: qSim.o event.o eventQueue.o teller.o
+	g++ $(CFLAGS) qSim.o event.o eventQueue.o teller.o -o qSim
 
-qSim.o: qSim.cpp teller.h event.h customer.h eventQueue.h
+qSim.o: qSim.cpp teller.h event.h eventQueue.h
 	g++ $(CFLAGS) -c qSim.cpp
 
 event.o: event.cpp event.h
@@ -15,9 +15,6 @@ event.o: event.cpp event.h
 
 eventQueue.o: eventQueue.cpp eventQueue.h
 	g++ $(CFLAGS) -c eventQueue.cpp
-
-customer.o: customer.cpp event.cpp event.h customer.h
-	g++ $(CFLAGS) -c customer.cpp
 
 teller.o: teller.cpp event.h teller.h
 	g++ $(CFLAGS) -c teller.cpp
