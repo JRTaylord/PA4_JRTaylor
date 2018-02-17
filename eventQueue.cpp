@@ -1,6 +1,7 @@
-//
-// Created by jrtaylor on 2/11/18.
-//
+/*
+ * PA4_the_murder - Jacob Tutlis - jjtutlis - James Taylor - jrtaylor
+ * Created by jrtaylor on 2/11/18.
+ */
 
 #include "eventQueue.h"
 #include "event.h"

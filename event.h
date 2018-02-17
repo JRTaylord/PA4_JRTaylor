@@ -1,6 +1,7 @@
-// PA4_the_murder - Jacob Tutlis - jjtutlis - James Taylor - jrtaylor
-// Created by student on 2/10/18.
-//
+/*
+ * PA4_the_murder - Jacob Tutlis - jjtutlis - James Taylor - jrtaylor
+ * Created by jrtaylor on 2/10/18.
+ */
 
 #ifndef PA4_JRTAYLOR_EVENT_H
 #define PA4_JRTAYLOR_EVENT_H
